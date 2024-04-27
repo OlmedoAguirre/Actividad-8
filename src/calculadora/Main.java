@@ -57,7 +57,7 @@ public class Main {
         System.out.println("Presione '4' para seleccionar 'rectangulo' ");
         System.out.println("Presione '5' para seleccionar 'pentagono' ");
     }
-    static void case1(){
+    static <operacion> void case1(){
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Introduzca el diametro: ");
@@ -66,9 +66,9 @@ public class Main {
         System.out.print("Introduzca el valor del radio: ");
         double a = sc.nextDouble();
 
-        operacion operacion = new circulo(d,a);
-        operacion.calcular_perimetro();
-        operacion.calcular_area();
+        operacion operacion = (operacion) new Circulo(d,a);
+        ((Circulo) operacion).calcular_perimetro();
+        ((Circulo) operacion).calcular_area();
     }
 
     static void case2() {
@@ -81,8 +81,8 @@ public class Main {
         double a = sc.nextDouble();
 
         operacion operacion = new Cuadrado(d,a);
-        operacion.calcular_perimetro();
-        operacion.calcular_area();
+        ((Cuadrado) operacion).calcular_perimetro();
+        ((Cuadrado) operacion).calcular_area();
     }
 
     static void case3() {
@@ -104,11 +104,11 @@ public class Main {
         double h = sc.nextDouble();
 
         operacion operacion = new Triangulo(d,a,t,f,h);
-        operacion.calcular_perimetro();
-        operacion.calcular_area();
+        ((Triangulo) operacion).calcular_perimetro();
+        ((Triangulo) operacion).calcular_area();
     }
 
-    static void case4() {
+    static <operacion> void case4() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Introduzca el valor del lado horizontal(cm)");
@@ -123,9 +123,9 @@ public class Main {
         System.out.println("Introduzca el valor de la altura(cm)");
         double h = sc.nextDouble();
 
-        operacion operacion = new Rectangulo(d,a,t,h);
-        operacion.calcular_perimetro();
-        operacion.calcular_area();
+        operacion operacion = (operacion) new Rectangulo(d, a, t, h);
+        ((Rectangulo) operacion).calcular_perimetro();
+        ((Rectangulo) operacion).calcular_area();
     }
 
     static void case5() {
@@ -141,7 +141,9 @@ public class Main {
         double h = sc.nextDouble();
 
         operacion operacion = new Pentagono(d,a,h);
-        operacion.calcular_perimetro();
-        operacion.calcular_area();
+        ((Pentagono) operacion).calcular_perimetro();
+        ((Pentagono) operacion).calcular_area();
     }
+
+
 }
